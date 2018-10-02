@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="495472f6-2527-431d-8539-feb775733d13" activeEnvironment="Default" name="ArtStuff best version" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="13dd45a0-85fe-49bf-afd4-23e5f0ff31b8" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://api.artsy.net" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://api.artsy.net</con:endpoint></con:endpoints><con:resource name="api" path="/api" id="0eec7cdf-c83c-433e-abba-60ce50f6154e"><con:settings/><con:parameters/><con:resource name="tokens" path="tokens" id="3e1c3195-d32b-4070-b770-3bf9ac4a2c2b"><con:settings/><con:parameters/><con:resource name="xapp_token" path="xapp_token" id="5072f539-008f-4ae3-a691-19e2c97566d7"><con:settings/><con:parameters><con:parameter><con:name>client_id</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>client_secret</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="POST [/api/tokens/xapp_token]" id="8d0bd159-186b-46ad-b6f7-8d1d039832bd" method="POST"><con:settings/><con:parameters/><con:request name="Request 1" id="11ea9116-659d-422e-94bc-07e43592a35d" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="client_secret" value="1"/>
+  <con:entry key="client_id" value="1"/>
+</con:parameters><con:parameterOrder><con:entry>client_id</con:entry><con:entry>client_secret</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:resource><con:resource name="search" path="search" id="ed36a65b-8885-49e8-a2c4-43fd861dbce0"><con:settings/><con:parameters><con:parameter><con:name>q</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET a search [https://api.artsy.net]" id="61075404-fbbe-404b-ada9-79145c201f60" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sear="https://api.artsy.net/api/search">sear:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401 400</con:status><con:params/><con:element xmlns:sear="https://api.artsy.net/api/search">sear:Fault</con:element></con:representation><con:request name="Request 1" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings/><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="1" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="artists" path="artists" id="3d63e97b-bfba-485b-a63c-c5926632433b"><con:settings/><con:parameters/><con:method name="Method 1" id="66c5ebb9-a068-498e-baad-823d8e1308cd" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:art="https://api.artsy.net/api/artists">art:Response</con:element></con:representation><con:request name="Request 1" id="c2d7b811-200e-4532-98ac-7af68599ae78" mediaType="application/json"><con:settings/><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="artworks" path="artworks" id="a0379eba-1384-4433-995b-2afa1195b8e5"><con:settings/><con:parameters/><con:method name="Method 1" id="db2c0119-709b-4c4e-9c1d-3f4da7bacace" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:art="https://api.artsy.net/api/artworks">art:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:art="https://api.artsy.net/api/artworks">art:Response</con:element></con:representation><con:request name="Request 1" id="7fbc3646-0b8c-4fc1-b061-bafb66d4ed84" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzUyNDM5NiwiaWF0IjoxNTM2OTE5NTk2LCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5Yjg4MmNiYzEwMGExZDZkNmRmMmMzIn0.7d125gxDccoeq7Fe5PtY2F-uB5TgWE9MDtQ4GTfMjIA" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/artworks</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="profiles" path="profiles" id="82753cd4-d890-4efb-901b-13f2c84edfee"><con:settings/><con:parameters/><con:method name="Method 1" id="c9f01042-f26f-48f6-a670-2a0d1459c079" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:prof="https://api.artsy.net/api/profile">prof:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:prof="https://api.artsy.net/api/profile">prof:Response</con:element></con:representation><con:request name="Request 1" id="ba295af1-979c-4647-ad1d-84ebc2f89f56" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/profiles</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="genes" path="genes" id="48e1a821-6e6e-4449-83cf-3a157193f150"><con:settings/><con:parameters/><con:method name="Method 1" id="7d15877e-531e-4438-840a-c3403f02658a" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:gen="https://api.artsy.net/api/genes">gen:Response</con:element></con:representation><con:request name="Request 1" id="a46ee21c-480e-4a29-abc0-f4146717c7c3" mediaType="application/json"><con:settings/><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="shows" path="/shows" id="aa7f79aa-2eb8-41ce-b316-919037a0426b"><con:settings/><con:parameters/><con:method name="Method 1" id="7037f5e1-71e4-49d1-8152-a8e23b0cbd31" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:art="https://api.artsy.net/api/artists">art:Response</con:element></con:representation><con:request name="Request 1" id="94f144ce-559b-46c3-aa07-4537216011df" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/shows/4ea19ee97bab1a0001001908</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource></con:interface><con:testSuite id="605b7de9-7b4e-4c87-b196-5a57e6df5758" name="Authorisation"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="6014ae3c-de09-46cd-aee7-e5642a3f9ef8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="POST [/api/tokens/xapp_token]" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="f3ea5930-3662-4446-aab0-450112ae1159"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>client_id</con:name><con:value>607684be74951c7b6150</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>725e07e9d97c8fc549608b43c89bf1c1</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="3663ade2-7fdb-4bda-b971-69e368a6e2d9"><con:settings/><con:config><script>def getUserId = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("client_id");
+def getSecret = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("client_secret");
+
+testRunner.testCase.testSteps["Properties"].setPropertyValue("client_id", getUserId);
+testRunner.testCase.testSteps["Properties"].setPropertyValue("client_secret", getSecret);
+
+log.info(' user_id ' + getUserId); log.info(' used_secret ' + getSecret);</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="31ac3e92-f657-44fb-8764-f8a96b5d27bd"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="POST [/api/tokens/xapp_token]" id="24e77c89-6a1c-4f7b-8b03-96f81942e931"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/tokens/xapp_token" methodName="POST [/api/tokens/xapp_token]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST [/api/tokens/xapp_token]" id="11ea9116-659d-422e-94bc-07e43592a35d" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/tokens/xapp_token</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="client_secret" value="725e07e9d97c8fc549608b43c89bf1c1"/>
+  <con:entry key="client_id" value="607684be74951c7b6150"/>
+</con:parameters><con:parameterOrder><con:entry>client_id</con:entry><con:entry>client_secret</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="18bf58de-92f0-4c56-af6b-dd777af2dc56"><con:settings/><con:config><script>///////////////////////////////////////////////////// get info from precondition ////////////////////////////////////////////////////////////////
+
+def client_id = testRunner.testCase.testSteps["Properties"].getPropertyValue("client_id");
+def client_secret = testRunner.testCase.testSteps["Properties"].getPropertyValue("client_secret");
+
+///////////////////////////////////////////////////// set data into SOAP request ////////////////////////////////////////////////////////////////
+
+testRunner.testCase.testSteps["POST [/api/tokens/xapp_token]"].setPropertyValue("client_id", client_id); 
+testRunner.testCase.testSteps["POST [/api/tokens/xapp_token]"].setPropertyValue("client_secret", client_secret);
+
+//////////////////////////////////////////////////// run test step + get response ///////////////////////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("POST [/api/tokens/xapp_token]")
+def responseToken = testRunner.testCase.getTestStepByName("POST [/api/tokens/xapp_token]").getPropertyValue("Response");
+def successfullyCreatedToken  = testRunner.testCase.testSteps["POST [/api/tokens/xapp_token]"].testRequest.response.getResponseHeaders();
+log.info successfullyCreatedToken["#status#"]
+assert ['HTTP/1.1 201 Created'] == successfullyCreatedToken["#status#"]
+
+//////////////////////////////////////////////////// parse response ///////////////////////////////////////////////////////////////////////////////////
+
+import groovy.json.JsonSlurper;
+def slurper = new groovy.json.JsonSlurper();
+def jsonResp = slurper.parseText(responseToken);
+def tokenResult = jsonResp.token;
+
+log.info('Result token: ' + tokenResult);
+
+//////////////////////////////////////////////////// set token to test suite ///////////////////////////////////////////////////////////////////////////////////
+
+testRunner.testCase.testSuite.setPropertyValue("token",tokenResult);
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>client_id</con:name><con:value>607684be74951c7b6150</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>725e07e9d97c8fc549608b43c89bf1c1</con:value></con:property><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzOTA5NzY3MCwiaWF0IjoxNTM4NDkyODcwLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWJiMzg5YzZlNWE1ZWUyYzJhN2FiYTVhIn0.Vmc1XT2LDX7IaJgHeD5jMzdSO1ZZCOlqtcryhiOO96A</con:value></con:property></con:properties></con:testSuite><con:testSuite id="6cacd3aa-f32d-45d9-a35e-038809ab328d" name="Search"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e0288d7f-07ec-4910-b506-c711bce8d3b7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Choose artist" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="06fbe513-ec71-4d6a-a601-176fbf96804e"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="18931879-3550-495b-b9d0-ab51d517a6f2"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="5d117240-b99e-4891-b214-bd903b6ce323"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET artists [https://api.artsy.net/api/artists]" id="c0f51679-7a71-429f-8c13-9f1772773e94"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/artists" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET artists [https://api.artsy.net/api/artists]" id="c2d7b811-200e-4532-98ac-7af68599ae78" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/artists</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="5fb25975-44f7-4d0b-9e59-86925858fa6f"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET artists [https://api.artsy.net/api/artists]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////// get array of artists slug ////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("GET artists [https://api.artsy.net/api/artists]");
+def artistsResponse = testRunner.testCase.getTestStepByName("GET artists [https://api.artsy.net/api/artists]").getPropertyValue("RESPONSE"); 
+
+import groovy.json.JsonSlurper; 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(artistsResponse); 
+def artistSlugArray = jsonResp._embedded.artists.slug; 
+def shosenArtist = artistSlugArray[artistSlugArray.size() - 1]
+
+//////////////////////////////////////////////// assert and set to custom properties //////////////////////////////////////////////////
+
+ArrayList failures = [];
+if (shosenArtist != null)
+	log.info('Chosen artist Slug: ' + shosenArtist); 
+else {
+	log.info("Artist Slug array doesn't exist")
+	failures.add("artistSlugArray == 0")
+}
+
+testRunner.testCase.testSuite.project.testSuites["Search"].setPropertyValue("chosenArtistSlug", shosenArtist); 
+
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b05a7763-f12e-4acc-a45d-53efd6a9875f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search artist" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="7f845105-abbf-436e-a45e-ed3264f15d5c"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="ad636da3-c70d-42f1-ab21-245446153441"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="4bea31f4-8b5e-4a44-aab9-615632a7b175"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net]" id="20288afd-16de-46de-829b-1276a2cf18de"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/search" methodName="GET a search [https://api.artsy.net]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net]" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="0331s-and-grisha" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="215977e7-b19b-469b-92d3-d4bf74896fd7"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////  choose artist slug for searchRequest  ////////////////////////////////////////////////////////////////
+
+def chosenArtist  = testRunner.testCase.testSuite.project.testSuites["Search"].getPropertyValue("chosenArtistSlug");//taken from Search testSuite
+testRunner.testCase.testSteps["GET [https://api.artsy.net]"].setPropertyValue("q", chosenArtist);
+
+
+////////////////////////////////////////////////////// run step, check result ////////////////////////////////////////////////////////////////
+def expSearchStatus = "artist"
+def expSearchSlug = chosenArtist
+
+testRunner.runTestStepByName("GET [https://api.artsy.net]")
+def artistsSearchResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").getPropertyValue("RESPONSE"); 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(artistsSearchResponse); 
+
+def factSearchStatus = jsonResp._embedded.results.type[0];
+def factSearchSlug = jsonResp.q;
+
+ArrayList failures = [];
+if (factSearchStatus == expSearchStatus)
+	log.info("Artist status = ok"); 
+else {
+	log.info("Artist status != artist")
+	failures.add("Chosen artist Slug != expSearchSlug")
+}
+
+if (expSearchSlug == factSearchSlug)
+	log.info("Artist slug = ok"); 
+else {
+	log.info("Artist slug != expected artist slug")
+	failures.add("factSearchSlug != expSearchSlug")
+}
+
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="29ce7079-1251-4b70-8e62-31a589475731" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Choose artworks" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="ad1ef646-9150-4d4e-b0d6-9670bce6b9b2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="bbc14bf1-bde7-4814-b572-2751a0dd0b36"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="5e6946f3-2281-409c-a799-8fbc96414f74"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net/api/artworks]" id="20b25cbf-6541-4565-8891-ec31675de198"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/artworks" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net/api/artworks]" id="7fbc3646-0b8c-4fc1-b061-bafb66d4ed84" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/artworks</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="49d239ad-fd11-487f-a3aa-85c0ec3a6342"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net/api/artworks]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////// get array of artists slug ////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("GET [https://api.artsy.net/api/artworks]");
+def artworksResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net/api/artworks]").getPropertyValue("RESPONSE"); 
+
+import groovy.json.JsonSlurper; 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(artworksResponse); 
+def artworksSlugArray = jsonResp._embedded.artworks.slug; 
+def chosenArtwork = artworksSlugArray[artworksSlugArray.size() - 1]
+
+//////////////////////////////////////////////// assert and set to custom properties //////////////////////////////////////////////////
+
+ArrayList failures = [];
+if (chosenArtwork != null)
+	log.info('Chosen artwork Slug: ' + chosenArtwork); 
+else {
+	log.info("Artwork Slug array doesn't exist")
+	failures.add("artworkSlugArray == 0")
+}
+
+testRunner.testCase.testSuite.project.testSuites["Search"].setPropertyValue("chosenArtworkSlug", chosenArtwork); 
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fbd03fc4-9d68-43ac-bcf0-537278f92742" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search artworks" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="b408559e-c3f6-4d8c-80a3-5ec7c8343469"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="fe673be0-0478-4576-aab7-172c88322d17"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="c335a2ac-d858-491c-b3dc-71b0b99a707b"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net]" id="d5e96211-9b3a-480f-9aef-a8d236584fd8"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/search" methodName="GET a search [https://api.artsy.net]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net]" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="edouard-manet-luncheon-on-the-grass-le-dejeuner-sur-lherbe" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="cccb0808-1f76-4e1c-bb82-e05245ab714d"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////  choose artist slug for searchRequest  ////////////////////////////////////////////////////////////////
+
+def chosenArtwork  = testRunner.testCase.testSuite.project.testSuites["Search"].getPropertyValue("chosenArtworkSlug");//taken from Search testSuite
+testRunner.testCase.testSteps["GET [https://api.artsy.net]"].setPropertyValue("q", chosenArtwork);
+
+
+////////////////////////////////////////////////////// run step, check result ////////////////////////////////////////////////////////////////
+def expSearchStatus = "artwork"
+def expSearchSlug = chosenArtwork
+
+testRunner.runTestStepByName("GET [https://api.artsy.net]")
+def artworkSearchResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").getPropertyValue("RESPONSE"); 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(artworkSearchResponse); 
+
+def factSearchStatus = jsonResp._embedded.results.type[0];
+def factSearchSlug = jsonResp.q;
+
+ArrayList failures = [];
+if (factSearchStatus == expSearchStatus)
+	log.info("Artwork status = ok"); 
+else {
+	log.info("Artwork status != artworks")
+	failures.add("Chosen artwork Slug != expSearchSlug")
+}
+
+if (expSearchSlug == factSearchSlug)
+	log.info("Artwork slug = ok"); 
+else {
+	log.info("Artwork slug != expected artwork slug")
+	failures.add("factSearchSlug != expSearchSlug")
+}
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="efa67897-c38f-4ad4-b6a6-99b97fb04e7d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Choose profile" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="dfbbdc13-4164-43ab-9e0b-5b7309e55192"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="9556ccb8-3e2e-4333-818f-3935f0eb2210"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="620b0e2b-587e-4bdd-821f-72fe2af1da6a"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net/profiles]" id="75c7bd79-5980-41ed-9f7c-fb6292bea237"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/profiles" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net/profiles]" id="ba295af1-979c-4647-ad1d-84ebc2f89f56" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/profile</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="764b4ef8-86bc-42ca-90d8-1b469f071d53"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net/profiles]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////// get array of profile slug ////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("GET [https://api.artsy.net/profiles]");
+def profileResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net/profiles]").getPropertyValue("RESPONSE"); 
+
+import groovy.json.JsonSlurper; 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(profileResponse); 
+def profileSlugArray = jsonResp._embedded.profiles.handle; 
+def chosenProfile = profileSlugArray[profileSlugArray.size() - 1]
+
+//////////////////////////////////////////////// assert and set to custom properties //////////////////////////////////////////////////
+
+ArrayList failures = [];
+if (chosenProfile != null)
+	log.info('Chosen profile Slug: ' + chosenProfile); 
+else {
+	log.info("Profile Slug array doesn't exist")
+	failures.add("profileSlugArray == 0")
+}
+
+testRunner.testCase.testSuite.project.testSuites["Search"].setPropertyValue("chosenProfileHandle", chosenProfile); 
+
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="dfc20b33-e654-439f-bb64-ff1bc27bc2a9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search profile" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="0125e0e2-0d84-4912-8141-52ba4227c1b7"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="405901a7-e50d-4173-b8eb-8dd847074277"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="b8503d62-bcb0-46ff-93a7-da09d6e44b04"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net]" id="0915de0e-782f-44c0-a683-4588dd9538f4"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/search" methodName="GET a search [https://api.artsy.net]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net]" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="elisabetta-cipriani" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="d62b4167-07e9-42a2-b878-f318714fafd2"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////  choose profile handle for searchRequest  ////////////////////////////////////////////////////////////////
+
+def chosenProfile  = testRunner.testCase.testSuite.project.testSuites["Search"].getPropertyValue("chosenProfilehandle");//taken from Search testSuite
+testRunner.testCase.testSteps["GET [https://api.artsy.net]"].setPropertyValue("q", chosenProfile);
+
+
+////////////////////////////////////////////////////// run step, check result ////////////////////////////////////////////////////////////////
+def expSearchStatus = "profile"
+def expSearchHandle = chosenProfile
+
+testRunner.runTestStepByName("GET [https://api.artsy.net]")
+def profileSearchResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").getPropertyValue("RESPONSE"); 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(profileSearchResponse); 
+
+def factSearchStatus = jsonResp._embedded.results.type[0];
+def factSearchHandle = jsonResp.q;
+
+ArrayList failures = [];
+if (factSearchStatus == expSearchStatus)
+	log.info("Profile status = ok"); 
+else {
+	log.info("Profile status != profile")
+	failures.add("Chosen profile status != expSearchStatus")
+}
+
+if (factSearchHandle == expSearchHandle)
+	log.info("Profile handle = ok"); 
+else {
+	log.info("Profile handle != expected profile handle")
+	failures.add("factSearchStatus != expSearchHandle")
+}
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c34e5871-dc79-40f7-a268-026787ab5b25" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Choose genes" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="4e116b2b-3272-4e70-a719-097dc69d5c0a"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="3681e124-c9ff-46b1-9207-73d570684b07"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="8ec871e5-b5e0-48dc-ad51-c1804b1be7d1"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET genes [/api/genes]" id="633607f3-864a-4c15-ab5e-1241e1efc426"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/genes" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET genes [/api/genes]" id="a46ee21c-480e-4a29-abc0-f4146717c7c3" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/genes</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="05433947-0fd6-445a-b8e6-51ac5ee67644"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET genes [/api/genes]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////// get array of genes name ////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("GET genes [/api/genes]");
+def genesResponse = testRunner.testCase.getTestStepByName("GET genes [/api/genes]").getPropertyValue("RESPONSE"); 
+
+import groovy.json.JsonSlurper; 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(genesResponse); 
+def genesNameArray = jsonResp._embedded.genes.name; 
+def chosenGenes = genesNameArray[genesNameArray.size() - 1]
+
+//////////////////////////////////////////////// assert and set to custom properties //////////////////////////////////////////////////
+
+ArrayList failures = [];
+if (chosenGenes != null)
+	log.info('Chosen gene name: ' + chosenGenes); 
+else {
+	log.info("Gene name is empty")
+	failures.add("chosenGenes == 0")
+}
+
+testRunner.testCase.testSuite.project.testSuites["Search"].setPropertyValue("chosenGene", chosenGenes); 
+
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9e243d16-0a0e-4d62-87ec-b4fe7f41d05b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search genes" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="cf7c6b2c-e81b-46e8-9d73-f09c0f0c5ae2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="d4472621-1887-4437-abe4-b13e58e734fa"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="e7cd8a95-13c4-42b6-955e-3d04a742c7c0"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net]" id="4c00b901-717f-40d8-af64-ce738fe381f5"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/search" methodName="GET a search [https://api.artsy.net]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net]" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="16th Century" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="2dbdae7d-5754-4478-ac7f-5de70529fb9f"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////  choose profile handle for searchRequest  ////////////////////////////////////////////////////////////////
+
+def chosenGene  = testRunner.testCase.testSuite.project.testSuites["Search"].getPropertyValue("chosenGene");//taken from Search testSuite
+testRunner.testCase.testSteps["GET [https://api.artsy.net]"].setPropertyValue("q", chosenGene);
+
+
+////////////////////////////////////////////////////// run step, check result ////////////////////////////////////////////////////////////////
+def expSearchGene = "16th Century Art"
+
+testRunner.runTestStepByName("GET [https://api.artsy.net]")
+def geneSearchResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").getPropertyValue("RESPONSE"); 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(geneSearchResponse); 
+
+def factSearchGene = jsonResp._embedded.results.title[0];
+
+
+ArrayList failures = [];
+if (factSearchGene == expSearchGene)
+	log.info("Gene name = ok"); 
+else {
+	log.info("Gene name != expSearchGene")
+	failures.add("Chosen gene name != expSearchGene")
+}
+assert failures.isEmpty()
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f0c750f9-3db0-4445-a9e6-3fa66870c472" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Choose show" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="d5dea55c-d70f-459d-850a-eabf63d33105"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="df2d2125-d2a4-4bac-bfb4-a66bb7a30030"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="52ef3948-710b-4c87-bbcf-6c6dcaae7c22"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET show [https://api.artsy.net/api/shows]" id="5e8265cc-ad58-498b-ab86-e3de0af47798"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/shows" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET show [https://api.artsy.net/api/shows]" id="c2d7b811-200e-4532-98ac-7af68599ae78" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/artists</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="25602c89-e5ca-43d4-badc-98f71c00ba16"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET show [https://api.artsy.net/api/shows]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////// get array of artists slug ////////////////////////////////////////////////////////////////
+testRunner.runTestStepByName("GET show [https://api.artsy.net/api/shows]");
+def showsResponse = testRunner.testCase.getTestStepByName("GET show [https://api.artsy.net/api/shows]").getPropertyValue("RESPONSE"); 
+
+import groovy.json.JsonSlurper; 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(showsResponse); 
+def showsNameArray = jsonResp._embedded.shows.name; 
+def chosenShows = showsNameArray[showsNameArray.size() - 1]
+
+//////////////////////////////////////////////// assert and set to custom properties //////////////////////////////////////////////////
+
+ArrayList failures = [];
+if (chosenShows != null)
+	log.info('Chosen show name: ' + chosenShows); 
+else {
+	log.info("Show name array doesn't exist")
+	failures.add("chosenShows == 0")
+}
+
+testRunner.testCase.testSuite.project.testSuites["Search"].setPropertyValue("chosenShows", chosenShows); 
+
+assert failures.isEmpty()</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="66a60ad4-6873-416a-87c0-ed9978c1d8e6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search shows" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="e40c3115-0c05-44d1-9f17-7123d316be83"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>token</con:name><con:value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Precondition" id="ca13635d-23ec-41e2-8520-6ed564ee2b2d"><con:settings/><con:config><script>def token = testRunner.testCase.testSuite.project.testSuites["Authorisation"].getPropertyValue("token"); //take token from authorization test suite
+testRunner.testCase.testSteps["Properties"].setPropertyValue("token", token); //set token to local Properties</script></con:config></con:testStep><con:testStep type="groovy" name="Go to main" id="a713412a-8432-440b-af7c-7bb4a9c57132"><con:settings/><con:config><script>testRunner.gotoStepByName("Main");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET [https://api.artsy.net]" id="78ea6901-35e4-4350-a8dd-74c314024178"><con:settings/><con:config service="https://api.artsy.net" resourcePath="/api/search" methodName="GET a search [https://api.artsy.net]" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET [https://api.artsy.net]" id="fe75bd85-8c64-4122-b81d-44f9c73e4fe5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-XAPP-Token" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUzNzc4MzAwMSwiaWF0IjoxNTM3MTc4MjAxLCJhdWQiOiI1Yjk3ZDZkMjI4MzViNDI0MTJlMjU5ZWMiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWI5ZjdhNTlhNTkzYzYwZmY2YzkzY2VjIn0.BQiVNTolIoIDabU8SskIx7_lSVf__L-uljBcdM-5goQ" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://api.artsy.net</con:endpoint><con:request/><con:originalUri>https://api.artsy.net/api/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="q" value="Simon Norfolk &quot;Burke + Norfolk&quot;" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>q</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Main" id="d2482263-fc70-4adf-b486-a18f55156b4d"><con:settings/><con:config><script>///////////////////////////////////////////////////// set token to header ////////////////////////////////////////////////////////////////
+def token = testRunner.testCase.testSteps["Properties"].getPropertyValue("token");
+
+import com.eviware.soapui.support.types.StringToStringMap 
+def headers = new StringToStringMap()
+headers.put("X-XAPP-Token",token)
+testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").testRequest.setRequestHeaders(headers)
+
+/////////////////////////////////////////////////////  choose profile handle for searchRequest  ////////////////////////////////////////////////////////////////
+
+def chosenShow  = testRunner.testCase.testSuite.project.testSuites["Search"].getPropertyValue("chosenShows");//taken from Search testSuite
+testRunner.testCase.testSteps["GET [https://api.artsy.net]"].setPropertyValue("q", chosenShow);
+
+
+////////////////////////////////////////////////////// run step, check result ////////////////////////////////////////////////////////////////
+def expSearchType = "show"
+def expSearchShows = chosenShow
+
+testRunner.runTestStepByName("GET [https://api.artsy.net]")
+def showsSearchResponse = testRunner.testCase.getTestStepByName("GET [https://api.artsy.net]").getPropertyValue("RESPONSE"); 
+def slurper = new groovy.json.JsonSlurper(); 
+def jsonResp = slurper.parseText(showsSearchResponse); 
+
+def factSearchType = jsonResp._embedded.results.type[0];
+def factSearchShows = jsonResp._embedded.results.title[0];
+
+
+ArrayList failures = [];
+if (expSearchType == factSearchType)
+	log.info("Search type = ok"); 
+else {
+	log.info("expSearchType != factSearchType")
+	failures.add("expSearchType != factSearchType")
+}
+
+if (expSearchShows == factSearchShows)
+	log.info("Search shows = ok"); 
+else {
+	log.info("expSearchShows != factSearchShows")
+	failures.add("expSearchShows != factSearchShows")
+}
+
+assert failures.isEmpty()
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>chosenArtistSlug</con:name><con:value>0331s-and-grisha</con:value></con:property><con:property><con:name>chosenArtworkSlug</con:name><con:value>edouard-manet-luncheon-on-the-grass-le-dejeuner-sur-lherbe</con:value></con:property><con:property><con:name>chosenProfilehandle</con:name><con:value>elisabetta-cipriani</con:value></con:property><con:property><con:name>chosenGene</con:name><con:value>16th Century</con:value></con:property><con:property><con:name>chosenShows</con:name><con:value>Simon Norfolk "Burke + Norfolk"</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
