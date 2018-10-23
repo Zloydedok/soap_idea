@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: @project.artifactId@
+  namespace: @kubernetes.namespace@
+  labels:
+    run: @project.artifactId@
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: @project.artifactId@
+    spec:
+      imagePullSecrets:
+      - name: @kubernetes.docker.registry.secret@
+      containers:
+      - name: @project.artifactId@
+        imagePullPolicy: @kubernetes.image.pullPolicy@
+        image: @docker.registry@/@project.artifactId@:@project.version@
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        env:
+        - name: BUILD_TS
+          value: @project.build.timestamp@

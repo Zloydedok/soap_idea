@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: @project.artifactId@
+  namespace: @kubernetes.namespace@
+spec:
+  selector:
+    run: @project.artifactId@
+  ports:
+    - name: default
+      protocol: TCP
+      port: @server.port@
+      targetPort: 80
+  type: NodePort

@@ -1,0 +1,126 @@
+variables:
+
+    CR_HOST:         "-Ddocker.registry=meetcr.azurecr.io"
+    CR_MVNFORAUTH:   "-Ddockerfile.useMavenSettingsForAuth=true"
+    MVN_SKIP_DEPLOY: "-Dmaven.deploy.skip=true"
+
+    KUBE_PORT:       "-Dserver.port=9091"
+    KUBE_NAMESPACE:  "-Dkubernetes.namespace=meet-dev0"
+    KUBE_REGISTRY:   "-Dkubernetes.docker.registry.secret=meet-cr-secret"
+    KUBE_IMAGE_POLICY:  "-Dkubernetes.image.pullPolicy=Always"
+
+
+    ALL_PARAM: "$CR_HOST $MVN_SKIP_DEPLOY $KUBE_PORT $KUBE_NAMESPACE $KUBE_REGISTRY $CR_MVNFORAUTH $KUBE_IMAGE_POLICY"
+
+    GIT_BRANCH:    $CI_COMMIT_REF_NAME
+    GIT_COMMIT_ID: $CI_COMMIT_SHA
+    GIT_SUBMODULE_STRATEGY: recursive
+    CI_PIPELINE_PRE_URL: "https://misp.t-systems.com/tools/gitlab/dih/dih-spa-marketplace/pipelines/"
+
+before_script:
+    - source /etc/environment
+    - export GIT_COMMIT_TIME=`git show -s --format=%ci $CI_COMMIT_SHA`
+    - export CI_BUILD_TIME=`date +"%F %H:%M:%S"`
+
+stages:
+  - prebuild
+  - build
+  - testing
+  - install
+  - deploydev
+  - deploytest
+
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+
+
+prebuild:
+  stage: prebuild
+  tags: [deploy]
+  script:
+    - echo $HTTP_PROXY
+    - echo $HTTPS_PROXY
+    - echo $PATH
+    - echo $DOCKER_HOST
+    - echo $DOCKER_MACHINE_NAME
+    - echo $DOCKER_TLS_VERIFY
+    - echo $ALL_PARAM
+    - echo $CI_BUILD_TIME
+    - echo $GIT_COMMIT_TIME
+    - echo $GIT_BRANCH
+    - echo $GIT_COMMIT_ID
+    - echo $CI_PIPELINE_PRE_URL
+    - echo $CI_PIPELINE_ID
+    - docker images
+    - mvn clean
+    - yarn install
+    - yarn run lint
+
+
+## build stage
+build:
+  stage: build
+  tags: [deploy]
+  script:
+    - yarn run build
+
+## testing stage
+test unit:
+  stage: testing
+  tags: [deploy]
+  script:
+    - yarn run unit
+
+test e2e:
+  stage: testing
+  tags: [deploy]
+  script:
+#    - yarn run e2e || ( yarn run e2e-html-report; exit 1 )
+#    - yarn run e2e-html-report
+    - echo 1
+
+install to registry:
+  stage: install
+  tags: [deploy]
+  only:
+    - master
+  except:
+    - tags
+  script:
+    - mvn package $ALL_PARAM
+
+
+deploy to azure dev env:
+  stage: deploydev
+  tags: [deploy]
+  only:
+    - master
+  except:
+    - tags
+  environment:
+    name: dev0
+  script:
+    - export KUBECONFIG=/opt/gitlab-runner/.kube/meet-aks-config
+    - HTTP_PROXY=http://spbsrv-proxy.t-systems.ru:3128 mvn deploy -DskipTests=true -Ddockerfile.skip=true -P all $ALL_PARAM
+    - export KUBECONFIG=/opt/gitlab-runner/.kube/config
+
+deploy to azure test env:
+  stage: deploytest
+  tags: [deploy]
+  only:
+    - /^\d*[.]\d*[.]\d*-RELEASE$/
+    # - tags
+  environment:
+    name: test0
+  variables:
+    KUBE_NAMESPACE:  "-Dkubernetes.namespace=meet-test0"
+    ALL_PARAM: "$CR_HOST $MVN_SKIP_DEPLOY $KUBE_PORT $KUBE_NAMESPACE $KUBE_REGISTRY $CR_MVNFORAUTH $KUBE_IMAGE_POLICY"
+  script:
+    - export KUBECONFIG=/opt/gitlab-runner/.kube/meet-aks-config
+    - HTTP_PROXY=http://spbsrv-proxy.t-systems.ru:3128 mvn clean deploy -DskipTests=true -Ddockerfile.skip=true -P all $ALL_PARAM
+    - export KUBECONFIG=/opt/gitlab-runner/.kube/config
