@@ -16,5 +16,4 @@ When('I write in searchField {string} and press submit button', async text => {
 
 Then('I get Wiki in search results',  async () => {
   await yandSP.assert.elementPresent('@wikiResult')
-});
-
+})

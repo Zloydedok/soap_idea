@@ -16,6 +16,3 @@ Then('and button is green', async () => {
   client.click('button');
   await client.assert.visible('.green');
 });
-
-
-

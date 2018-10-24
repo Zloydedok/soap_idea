@@ -27,4 +27,3 @@ Then('I click on submit button', async () => {
   google.click('@searchButton')
   await google.waitForElementVisible('@body', 5000);
 })
-

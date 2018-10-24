@@ -30,7 +30,23 @@ module.exports = {
       locateStrategy: 'xpath'
     },
     firstNameInSettings: {
-      selector: "//h1[@class='settings-page__header__name' and text()='Grigory']",
+      selector: "//h1[@class='settings-page__header__name']",
+      locateStrategy: 'xpath'
+    },
+    goToProfileSettings: {
+      selector: "//a[@class='settings-tabs__tab js-avant-garde-tablist__tab' and text()='Settings']",
+      locateStrategy: 'xpath'
+    },
+    profileSettingsFullNameField: {
+      selector: "//input[@id='name']",
+      locateStrategy: 'xpath'
+    },
+    profileSettingsEmailField: {
+      selector: "//input[@id='email']",
+      locateStrategy: 'xpath'
+    },
+    informationSettingsChangesButton: {
+      selector: "//div[@id='information']/descendant::button[text()='Save Changes']",
       locateStrategy: 'xpath'
     }
   }
