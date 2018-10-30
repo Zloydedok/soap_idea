@@ -7,4 +7,3 @@ Feature: Log In Test Feature
     And Filled out the form with valid data
     And Press the 'Log in' button
     Then I successfully logged in
-

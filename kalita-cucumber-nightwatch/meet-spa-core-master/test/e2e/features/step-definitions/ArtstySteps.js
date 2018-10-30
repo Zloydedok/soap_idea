@@ -18,7 +18,7 @@ When('I click login button', async () => {
   await artsty.waitForElementVisible('@logInForm', 10000);
 });
 
-Then('Filled out the form with valid data',  async ()=> {
+Then('Filled out the form with valid data',  async () => {
   await artsty.waitForElementVisible('@logInEmailField', 20000);
   await artsty.setValue('@logInEmailField', loginData.email);
   await artsty.setValue('@logInPasswordField', loginData.password);
@@ -46,8 +46,12 @@ Given('I go to main Artsty page and login as {string}', async userFirstName  => 
   await artsty.click('@goToProfileFromMainPage');
   await artsty.waitForElementVisible('@firstNameInSettings', 10000);
   await artsty.assert.containsText('@firstNameInSettings', userFirstName);
+  await artsty.navigate();
 })
 Given('I go to profile settings page and change my full name to {string}', async userNewFirstName => {
+  await artsty.waitForElementVisible('@goToProfileFromMainPage', 10000);
+  await artsty.click('@goToProfileFromMainPage');
+  await artsty.waitForElementVisible('@firstNameInSettings', 10000);
   await artsty.click('@goToProfileSettings');
   await artsty.waitForElementVisible('@profileSettingsFullNameField', 5000);
   await artsty.click('@profileSettingsFullNameField');
