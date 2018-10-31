@@ -31,11 +31,11 @@ import {Given, When, Then} from 'cucumber';
  })
   Then('I see the picture {string}', async expectedPictureName => {
     await doesntWork.getLocationInView('@trueGalleryMaryFault');
-    await doesntWork.api.pause(5000);
+    await doesntWork.api.pause(4000);
     await doesntWork.click('@trueGalleryMaryFault');
-    await doesntWork.api.pause(5000);
+    await doesntWork.api.pause(4000);
     await doesntWork.click('@radioButtonMKFineArt');
-    await doesntWork.api.pause(5000);
+    await doesntWork.api.pause(4000);
 //    var elNameOfPaint = doesntWork.elements.nameOfPaint.selector+'[contains(text(),\'' + expectedPictureName + '\')]';
 //    await doesntWork.waitForElementPresent("elNameOfPaint",10000);
 //    await doesntWork.waitForElementPresent("@artResult"+"[contains(text(),'waitForElementPresent')]", 10000)
@@ -50,3 +50,16 @@ import {Given, When, Then} from 'cucumber';
 //  <//em[contains(text(),'Le repos dans le jardin, Argenteuil')]>
 
 //})
+//  int k=0;
+//  int[] a = {0, 1, 2, 3, 4, 5};
+//  int[] j = {0, 1, 2, 3, 4, 5};
+//  for (i=0; i<5; i++){
+//  k=0;
+//  for (j=0; i<5; j++){
+//  if (a[i]==b[j]) {
+//  k++;
+//  System.out.print(i"="j);
+//  }
+//  }
+//  System.out.print("Value from array A " + a[i] + "is met " + k+" times in array B")
+//  }
